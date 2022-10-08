@@ -1,24 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Board from "./components/board/Board";
+import Form from "./components/form/Form";
+import Header from "./components/header/Header";
+import Links from "./components/link/Links";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="bg-gray-200 dark:bg-zinc-800 duration-500 flex justify-center">
+      <div className="flex flex-col gap-4 w-fit min-h-screen overflow-hidden">
+        <Header />
+        <Form />
+        <Links />
+        <Board />
+      </div>
     </div>
   );
 }
