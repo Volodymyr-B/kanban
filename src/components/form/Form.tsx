@@ -1,12 +1,14 @@
-import React, { FC, useEffect, useRef, useState } from "react";
-import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
-import { fetchIssues } from "../../store/reducers/issuesLoading";
+import { useEffect, useRef, useState } from "react";
+import { useAppDispatch, useAppSelector } from "../../hooks/redux-hooks";
+import { fetchIssues } from "../../store/issues-slice/issues-actions";
 
-const Form: FC = () => {
+const Form = () => {
   const [url, setUrl] = useState<string>("");
   const dispatch = useAppDispatch();
-  const { issues } = useAppSelector((state) => state.issuesReducer);
+  const issues = useAppSelector((state) => state.issuesReducer.issues);
   const checked = useRef("");
+
+  // blocking reFetch if url dont change
   useEffect(() => {
     checked.current = url;
   }, [issues]);
@@ -16,7 +18,7 @@ const Form: FC = () => {
   };
 
   return (
-    <div className="px-2 xl:px-0">
+    <div className="px-2 xl:px-1">
       <div className="flex justify-between">
         <input
           className="input w-8/12 md:w-9/12"

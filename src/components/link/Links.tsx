@@ -1,7 +1,6 @@
-import React, { FC } from "react";
-import { useAppSelector } from "../../hooks/reduxHooks";
+import { useAppSelector } from "../../hooks/redux-hooks";
 
-const Links: FC = () => {
+const Links = () => {
   const { user, project } = useAppSelector(
     (state) => state.issuesReducer.issues
   );

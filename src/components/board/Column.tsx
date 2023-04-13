@@ -1,24 +1,25 @@
-import React, { FC } from "react";
-import { IIssue } from "../../types/IIssue";
+import { FC } from "react";
 import { Droppable } from "react-beautiful-dnd";
+import { IIssue } from "../../types/IIssue";
+
 import Card from "../board/Card";
 
-interface IColumn {
+type Status = "open" | "process" | "closed";
+
+interface ColumnProps {
   issues: IIssue[];
-  status: string;
+  status: Status;
 }
 
-const Column: FC<IColumn> = ({ issues, status }) => {
-  const columnName =
-    status === "open" ? "open" : status === "process" ? "in progress" : "done";
+const Column: FC<ColumnProps> = ({ issues, status }) => {
   const columnColor =
     status === "open" ? "blue" : status === "process" ? "yellow" : "green";
 
   return (
     <div className="column">
-      <div className="flex-container title h-14">{columnName}</div>
+      <div className="flex-container title h-14">{status}</div>
       <Droppable droppableId={status}>
-        {(provided, snapshot) => (
+        {(provided) => (
           <div ref={provided.innerRef} {...provided.droppableProps}>
             {issues.map((el, index) => {
               return (

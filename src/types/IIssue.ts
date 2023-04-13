@@ -11,7 +11,7 @@ export interface IIssue {
   };
 }
 
-export interface Data {
+export interface IIssuesState {
   user: string;
   project: string;
   open: IIssue[];

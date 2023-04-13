@@ -1,4 +1,4 @@
-import { IIssue, Data } from "../../types/IIssue";
+import { IIssue, IIssuesState } from "../../types/IIssue";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface IssuesState {
@@ -50,13 +50,11 @@ export const issuesSlice = createSlice({
       state.issues = initialState.issues;
       state.error = action.payload.message;
     },
-    dndIssues(state, action: PayloadAction<Data>) {
+    dndIssues(state, action: PayloadAction<IIssuesState>) {
       state.error = "";
       state.issues = action.payload;
     },
   },
 });
-// export const { fetching, fetchSuccess, fetchError, dndIssues } =
-//   issuesSlice.actions;
 
 export default issuesSlice.reducer;

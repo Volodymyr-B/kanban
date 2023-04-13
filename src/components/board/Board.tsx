@@ -1,10 +1,9 @@
-import React, { FC } from "react";
 import { DragDropContext, DropResult } from "react-beautiful-dnd";
-import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
-import { issuesDnd } from "../../store/reducers/issuesDnd";
+import { useAppDispatch, useAppSelector } from "../../hooks/redux-hooks";
+import { issuesDnd } from "../../store/issues-slice/issues-actions";
 import Column from "../board/Column";
 
-const Board: FC = () => {
+const Board = () => {
   const dispatch = useAppDispatch();
   const { isLoading, error, issues } = useAppSelector(
     (state) => state.issuesReducer
@@ -13,14 +12,15 @@ const Board: FC = () => {
     dispatch(issuesDnd(result, issues));
   };
 
+  if (isLoading)
+    return (
+      <div className="dark:text-white">
+        please wait, we loading your request
+      </div>
+    );
+  if (error) return <div className="dark:text-white">{error}</div>;
   return (
     <>
-      {isLoading && (
-        <div className="dark:text-white">
-          please wait, we loading your request
-        </div>
-      )}
-      {error && <div className="dark:text-white">{error}</div>}
       <DragDropContext onDragEnd={onDragEnd}>
         <div className="flex">
           <Column issues={issues.open} status={"open"} />

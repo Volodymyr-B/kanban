@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { Draggable } from "react-beautiful-dnd";
 
-interface ICard {
+interface CardProps {
   color: string;
   index: number;
   issue: {
@@ -14,15 +14,17 @@ interface ICard {
   };
 }
 
-const Column: FC<ICard> = ({ issue, index, color }) => {
+const Column: FC<CardProps> = ({ issue, index, color }) => {
   const { title, number, created_at, user, comments } = issue;
-  const opened: any = new Date(created_at);
-  const daysPassed: number = Math.ceil((Date.now() - opened) / 86400000);
+  const opened: Date = new Date(created_at);
+  const daysPassed: number = Math.ceil(
+    (Date.now() - Number(opened)) / 86400000
+  );
   const styles = { backgroundColor: color };
 
   return (
     <Draggable draggableId={issue.id.toString()} index={index}>
-      {(provided, snapshot) => (
+      {(provided) => (
         <div
           ref={provided.innerRef}
           {...provided.draggableProps}

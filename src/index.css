@@ -1,34 +1,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-.flex-container {
-  @apply flex justify-center items-center;
-}
-.flex-column {
-  @apply flex flex-col items-center;
-}
-.title {
-  @apply text-center font-bold md:text-lg xl:text-2xl font-[Arial] uppercase dark:text-white;
-}
-.column {
-  @apply flex-column px-1 md:px-3 w-full xl:w-96 bg-gray-300 dark:bg-zinc-600;
-}
-.card {
-  @apply bg-gray-200 max-w-[320px] min-h-[8rem] mb-5 p-2 pt-4 flex flex-col justify-between rounded-md shadow-lg relative overflow-hidden;
-}
-.card-top {
-  @apply absolute left-0 top-0 w-full h-4 rounded-t-md;
-}
-.btn {
-  @apply bg-blue-500 hover:bg-blue-600 dark:text-white font-medium p-1 rounded-md shadow-md;
-}
-.input {
-  @apply dark:bg-gray-200 h-9 p-1 rounded-md shadow-md focus:outline outline-offset-0 outline-4 outline-blue-700/50;
-}
-.link {
-  @apply text-blue-700 dark:text-blue-500 underline md:text-lg xl:text-xl font-bold;
-}
-.slider {
-  @apply absolute inset-0 w-8 h-8 rounded-2xl bg-blue-500 hover:bg-blue-600 transition-all dark:left-8;
+@layer components {
+  .flex-container {
+    @apply flex justify-center items-center;
+  }
+  .flex-column {
+    @apply flex flex-col items-center;
+  }
+  .title {
+    @apply text-center font-bold md:text-lg xl:text-2xl font-[Arial] uppercase dark:text-white;
+  }
+  .column {
+    @apply flex-column px-1 md:px-3 w-full xl:w-96 bg-gray-300 dark:bg-zinc-600;
+  }
+  .card {
+    @apply bg-gray-200 max-w-[320px] min-h-[8rem] mb-5 p-2 pt-4 flex flex-col justify-between rounded-md shadow-lg relative overflow-hidden;
+  }
+  .card-top {
+    @apply absolute left-0 top-0 w-full h-4 rounded-t-md;
+  }
+  .btn {
+    @apply bg-blue-500 hover:bg-blue-600 dark:text-white font-medium p-1 rounded-md shadow-md;
+  }
+  .input {
+    @apply dark:bg-gray-200 h-9 p-1 rounded-md shadow-md focus:outline outline-offset-0 outline-4 outline-blue-700/50;
+  }
+  .link {
+    @apply text-blue-700 dark:text-blue-500 underline md:text-lg xl:text-xl font-bold;
+  }
+  .slider {
+    @apply absolute inset-0 w-8 h-8 rounded-2xl bg-blue-500 hover:bg-blue-600 transition-all dark:left-8;
+  }
 }

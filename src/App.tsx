@@ -1,4 +1,3 @@
-import React from "react";
 import Board from "./components/board/Board";
 import Form from "./components/form/Form";
 import Header from "./components/header/Header";
