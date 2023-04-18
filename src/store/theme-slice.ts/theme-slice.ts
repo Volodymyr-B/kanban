@@ -5,7 +5,7 @@ interface Theme {
 }
 
 const initialState: Theme = {
-  theme: localStorage.getItem("current-theme"),
+  theme: null,
 };
 export const themeSlice = createSlice({
   name: "theme",
@@ -14,10 +14,8 @@ export const themeSlice = createSlice({
     themeSwitch(state) {
       if (state.theme === null || state.theme === "light") {
         state.theme = "dark";
-        localStorage.setItem("current-theme", "dark");
       } else {
         state.theme = "light";
-        localStorage.setItem("current-theme", "light");
       }
     },
   },
